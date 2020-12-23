@@ -5,7 +5,7 @@ import Vuex from 'vuex'
 Vue.use(Vuex);
 
 const state = {
-  url: 'http:127.0.0.1:8000/',
+  url: 'http://127.0.0.1:8000/',
 
   //用户数据
   name: '游客',
@@ -16,7 +16,7 @@ const state = {
 
 const getDefaultState = () => {
   return {
-    url: 'http:127.0.0.1:8000/',
+    url: 'http://127.0.0.1:8000/',
 
     //用户数据
     name: '游客',

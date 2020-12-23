@@ -10,7 +10,7 @@
         @select="handleSelect"
         :router="true"
       >
-        <el-menu-item index="/index">
+        <el-menu-item index="/home">
           <div @click="jump">
             网上书店
           </div>
