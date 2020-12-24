@@ -1,15 +1,15 @@
 <template>
   <div>
-    <div>登录页面（待部署）</div>
+    aaaa
   </div>
 </template>
 
 <script>
 export default {
-  name: "Login"
+  name: "Manage"
 }
 </script>
 
-<style>
+<style scoped>
 
 </style>

@@ -1,9 +1,9 @@
 <template>
 
-  <div>
+  <div style="width: 100%;">
 
-    <div id="bookstore-nav">
-      <el-menu
+    <div id="bookstore-nav" style="width: 100%;">
+      <el-menu style="font-size:12px;background-color: #c2c2c2;"
         default-active="activeIndex"
         class="el-menu-demo"
         mode="horizontal"
@@ -16,6 +16,26 @@
           </div>
 
         </el-menu-item>
+
+        <el-menu-item index="/login" style="float: right;">
+          <div v-if="this.$store.state.identity==='游客'">
+            登录
+          </div>
+
+
+        </el-menu-item>
+
+
+        <el-menu-item index="/manage" style="float: right;">
+          <div v-if="this.$store.state.identity==='管理员'">
+            后台管理
+          </div>
+
+
+        </el-menu-item>
+
+
+
       </el-menu>
 
 
@@ -31,6 +51,8 @@ export default {
   data(){
     return {
       activeIndex: 1,
+
+
 
     }
   },
@@ -51,5 +73,8 @@ export default {
 </script>
 
 <style scoped>
+el-menu{
+  background-color: #c2c2c2;
+}
 
 </style>

@@ -29,7 +29,11 @@ const getDefaultState = () => {
 const mutations = {
   resetState (state) {
     Object.assign(state, getDefaultState())
-  }
+  },
+  setIdentity(state, identity){
+    state.identity = identity;
+  },
+
 }
 
 export default new Vuex.Store({

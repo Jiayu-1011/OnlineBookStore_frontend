@@ -2,7 +2,7 @@
   <div>
     <div>欢迎来到网上书店!</div>
     <div>我们是：{{team}}</div>
-    <button type="button" @click="$router.push('home/')">进入网上书店</button>
+    <button type="button" @click="$router.push('/home')">进入网上书店</button>
     <div>接口测试:{{api_test}}</div>
     <button type="button" @click="GETTest">GET测试</button>
     <button type="button" @click="POSTTest">POST测试</button>
