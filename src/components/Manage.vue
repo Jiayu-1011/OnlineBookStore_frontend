@@ -1,12 +1,18 @@
 <template>
   <div>
-    aaaa
+    <Header></Header>
+
+
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
+import Header from "./Header";
+import Footer from "./Footer";
 export default {
-  name: "Manage"
+  name: "Manage",
+  components: {Header,Footer}
 }
 </script>
 

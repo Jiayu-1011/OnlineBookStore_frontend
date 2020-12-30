@@ -3,11 +3,12 @@ import Router from 'vue-router'
 import Home from "../views/Home";
 import Start from "../views/Start";
 import Main from "../components/Home/Main";
-import BookInfo from "../components/Home/BookInfo";
 import Manage from "../components/Manage";
 import Login from "../components/Login/Login";
 import Register from "../components/Login/Register";
 import Login_view from "../views/Login_view";
+import BookList from "../components/Home/BookList";
+import Poster from "../components/Home/Poster";
 
 
 
@@ -32,14 +33,18 @@ export default new Router({
         {
           path: '',
           component: Main,
+          children:[
+            {
+              path: '',
+              component: Poster
+            },
+            {
+              path: ':book_class',
+              component: BookList,
+            },
+          ]
 
         },
-        {
-          path: 'bookInfo',
-          component: BookInfo,
-        },
-
-
 
       ]
     },
@@ -59,10 +64,12 @@ export default new Router({
 
       ]
     },
+
     //后台管理页面
     {
       path: '/manage',
       component: Manage,
     }
+
   ]
 })

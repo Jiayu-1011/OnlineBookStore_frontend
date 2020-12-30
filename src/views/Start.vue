@@ -21,7 +21,7 @@ export default {
   },
   methods: {
     getTeam(){
-      this.$axios.post('http://127.0.0.1:8000/getTeam/')
+      this.$axios.post(this.$store.state.url + 'getTeam/')
       .then(res => {
         console.log(res);
         this.team = res.data.team;

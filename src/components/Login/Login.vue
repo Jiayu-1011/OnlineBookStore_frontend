@@ -67,13 +67,14 @@ export default {
       data.append('password', this.formLabelAlign.pwd);
       this.$axios.post(this.$store.state.url + 'login/', data).then(res => {
         console.log(res);
-        if(res.data === 'right'){
+        if(res.data.msg === 'right'){
           this.$message.success('登录成功！');
 
-          this.$router.push({path: '/home'})
+          this.$router.push('/home')
 
-          this.$store.commit('setIdentity', '管理员');
-        } else if(res.data === 'wrong') {
+          this.$store.commit('setIdentity', res.data.identity);
+          this.$store.commit('setName', res.data.name);
+        } else if(res.data.msg === 'wrong') {
           this.$message.error('密码错误！')
         } else {
           this.$message.error('此账号不存在！')

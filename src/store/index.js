@@ -9,7 +9,7 @@ const state = {
 
   //用户数据
   name: '游客',
-  identity: '游客',
+  identity: 'visitor',
   avatar: '',
 
 }
@@ -20,7 +20,7 @@ const getDefaultState = () => {
 
     //用户数据
     name: '游客',
-    identity: '游客',
+    identity: 'visitor',
     avatar: '',
 
   }
@@ -33,6 +33,9 @@ const mutations = {
   setIdentity(state, identity){
     state.identity = identity;
   },
+  setName(state, name){
+    state.name = name;
+  }
 
 }
 
