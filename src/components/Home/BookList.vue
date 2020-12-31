@@ -92,6 +92,8 @@ export default {
           return '科学类';
         case 'english':
           return '英语类';
+        case 'textbook':
+          return '教材类';
       }
     },
 
@@ -101,9 +103,7 @@ export default {
 
 }
 </script>
-<style>
-a{
-  background-color: #d0e6ff;
-}
+<style scoped>
+
 
 </style>

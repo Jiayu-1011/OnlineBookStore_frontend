@@ -52,6 +52,11 @@
 
         </el-menu-item>
 
+        <el-menu-item index="/home/textbook">
+          <div>教材类</div>
+
+        </el-menu-item>
+
 
       </el-menu>
 

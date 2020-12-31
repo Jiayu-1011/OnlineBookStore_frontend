@@ -1,8 +1,8 @@
 <template>
-  <div class="parent">
+  <div class="parent" id="login">
     <div class="div1">
       <el-card class="box-card">
-        <div slot="header" class="clearfix" style="color:#ffffff">
+        <div slot="header" class="clearfix" style="color:#ffffff;">
           <i class="el-icon-s-custom"></i><span>登录</span>
         </div>
         <div style="margin: 30px;"></div>
@@ -111,7 +111,7 @@ export default {
   position: relative;
 }
 
-.el-card__header {
+#login .el-card__header {
   padding: 18px 20px;
   border-bottom: 1px solid #EBEEF5;
   -webkit-box-sizing: border-box;
