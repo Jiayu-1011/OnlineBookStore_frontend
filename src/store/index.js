@@ -8,9 +8,12 @@ const state = {
   url: 'http://119.29.24.77/',
 
   //用户数据
-  name: '游客',
+  userName: '游客',
   identity: 'visitor',
   avatar: '',
+
+  bookClass: '',
+  pageNum: '',
 
 }
 
@@ -19,9 +22,13 @@ const getDefaultState = () => {
     url: 'http://119.29.24.77/',
 
     //用户数据
-    name: '游客',
+    userName: '游客',
     identity: 'visitor',
     avatar: '',
+
+
+    bookClass: '',
+    pageNum: '',
 
   }
 }
@@ -33,9 +40,16 @@ const mutations = {
   setIdentity(state, identity){
     state.identity = identity;
   },
-  setName(state, name){
-    state.name = name;
-  }
+  setUserName(state, userName){
+    state.userName = userName;
+  },
+  setBookClass(state, bookClass){
+    state.bookClass = bookClass;
+  },
+  setPageNum(state, pageNum){
+    state.pageNum = pageNum;
+  },
+
 
 }
 

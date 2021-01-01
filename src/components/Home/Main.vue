@@ -37,22 +37,22 @@
 
         </el-menu-item>
 
-        <el-menu-item index="/home/children">
+        <el-menu-item index="/home/bookList/children/1">
           <div>儿童类</div>
 
         </el-menu-item>
 
-        <el-menu-item index="/home/science">
+        <el-menu-item index="/home/bookList/science/1">
           <div>科学类</div>
 
         </el-menu-item>
 
-        <el-menu-item index="/home/english">
+        <el-menu-item index="/home/bookList/english/1">
           <div>英语类</div>
 
         </el-menu-item>
 
-        <el-menu-item index="/home/textbook">
+        <el-menu-item index="/home/bookList/textbook/1">
           <div>教材类</div>
 
         </el-menu-item>

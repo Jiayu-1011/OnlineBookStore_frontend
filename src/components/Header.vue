@@ -92,7 +92,7 @@ export default {
 
   },
   created() {
-    this.userName = this.$store.state.name;
+    this.userName = this.$store.state.userName;
   }
 }
 </script>

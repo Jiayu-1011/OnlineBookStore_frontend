@@ -7,8 +7,11 @@ import Manage from "../components/Manage";
 import Login from "../components/Login/Login";
 import Register from "../components/Login/Register";
 import Login_view from "../views/Login_view";
-import BookList from "../components/Home/BookList";
+import BookList from "../components/Home/Book/BookList";
 import Poster from "../components/Home/Poster";
+import Book from "../components/Home/Book/Book";
+import BookInfo from "../components/Home/Book/BookInfo";
+import BookInfo_view from "../views/BookInfo_view";
 
 
 
@@ -39,12 +42,25 @@ export default new Router({
               component: Poster
             },
             {
-              path: ':book_class',
-              component: BookList,
+              path: 'bookList/:bookClass',
+              component: Book,
+              children: [
+                {
+                  path: ':pageNum',
+                  component: BookList,
+                }
+              ]
             },
+            {
+              path: 'bookInfo/:bookId',
+              component: BookInfo,
+
+            },
+
           ]
 
         },
+
 
       ]
     },
@@ -64,6 +80,9 @@ export default new Router({
 
       ]
     },
+
+
+
 
     //后台管理页面
     {

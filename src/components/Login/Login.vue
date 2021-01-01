@@ -73,7 +73,7 @@ export default {
           this.$router.push('/home')
 
           this.$store.commit('setIdentity', res.data.identity);
-          this.$store.commit('setName', res.data.name);
+          this.$store.commit('setUserName', res.data.name);
         } else if(res.data.msg === 'wrong') {
           this.$message.error('密码错误！')
         } else {
