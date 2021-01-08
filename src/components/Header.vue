@@ -23,12 +23,10 @@
 
 
         <el-submenu index="/manage" style="float: right;" v-if="this.$store.state.identity!=='visitor'">
-          <template slot="title">
-            欢迎您，{{ userName }}
-          </template>
-          <el-menu-item @click="logout">
-            退出登录
-          </el-menu-item>
+          <template slot="title">欢迎您，{{ userName }}</template>
+          <el-menu-item @click="$router.push('/shoppingCart')">我的购物车</el-menu-item>
+          <el-menu-item @click="$router.push('/order')">我的订单</el-menu-item>
+          <el-menu-item @click="logout">退出登录</el-menu-item>
         </el-submenu>
 
         <el-menu-item index="/manage" style="float: right;" v-if="this.$store.state.identity==='admin'">

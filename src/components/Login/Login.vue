@@ -65,8 +65,9 @@ export default {
       let data = new FormData();
       data.append('account', this.formLabelAlign.acc);
       data.append('password', this.formLabelAlign.pwd);
+      //登录请求
       this.$axios.post(this.$store.state.url + 'login/', data).then(res => {
-        console.log(res);
+        console.log('登录返回信息:', res);
         if(res.data.msg === 'right'){
           this.$message.success('登录成功！');
 
@@ -74,6 +75,7 @@ export default {
 
           this.$store.commit('setIdentity', res.data.identity);
           this.$store.commit('setUserName', res.data.name);
+          this.$store.commit('setAccount', this.formLabelAlign.acc);
         } else if(res.data.msg === 'wrong') {
           this.$message.error('密码错误！')
         } else {

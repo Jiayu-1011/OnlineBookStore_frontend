@@ -11,7 +11,8 @@ import BookList from "../components/Home/Book/BookList";
 import Poster from "../components/Home/Poster";
 import Book from "../components/Home/Book/Book";
 import BookInfo from "../components/Home/Book/BookInfo";
-import BookInfo_view from "../views/BookInfo_view";
+import ShoppingCart from "../components/ShoppingCart";
+import Order from "../components/Order";
 
 
 
@@ -80,10 +81,16 @@ export default new Router({
 
       ]
     },
-
-
-
-
+    //购物车页面
+    {
+      path: '/shoppingCart',
+      component: ShoppingCart,
+    },
+    //订单详情页面
+    {
+      path: '/order',
+      component: Order,
+    },
     //后台管理页面
     {
       path: '/manage',

@@ -11,9 +11,13 @@ const state = {
   userName: '游客',
   identity: 'visitor',
   avatar: '',
+  account: '',
+  password: '',
 
   bookClass: '',
-  pageNum: '',
+  pageNum: 1,
+  shoppingList: [],
+
 
 }
 
@@ -25,10 +29,13 @@ const getDefaultState = () => {
     userName: '游客',
     identity: 'visitor',
     avatar: '',
+    account: '',
+    password: '',
 
 
     bookClass: '',
-    pageNum: '',
+    pageNum: 1,
+    shoppingList: [],
 
   }
 }
@@ -49,6 +56,20 @@ const mutations = {
   setPageNum(state, pageNum){
     state.pageNum = pageNum;
   },
+  setAccount(state, account){
+    state.account = account;
+  },
+  setShoppingList(state, shoppingList){
+    state.shoppingList = shoppingList;
+  },
+  addToShoppingList(state, bookId){
+    state.shoppingList.push(bookId);
+  },
+  removeFormShoppingList(state, bookId){
+    state.shoppingList.splice(state.shoppingList.indexOf(bookId), 1);
+  },
+
+
 
 
 }
