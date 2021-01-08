@@ -11,7 +11,7 @@
 
       <el-row style="">
 
-        <el-col :span="9" :offset="2">
+        <el-col :span="5" :offset="2">
 
           <el-select v-model="selectedId" placeholder="请选择订单号">
             <el-option
@@ -25,9 +25,28 @@
 
         </el-col>
 
-        <el-col :span="6" :offset="4">
+        <el-col :span="12">
           <el-card>
-            <template slot="header">订单编号{{selectedId}}</template>
+            <div slot="header">
+              <span>订单编号&emsp;&emsp;{{selectedId}}</span>
+            </div>
+
+            <div>
+              <div style="margin: 20px 0 0 0;">订单时间&emsp;&emsp;{{selectedOrder.orderTime}}</div>
+              <div style="margin: 20px 0 0 0;">订单金额&emsp;&emsp;{{selectedOrder.orderPrice}}</div>
+              <div style="margin: 20px 0 0 0;display: flex;">
+                <div>订单书目</div>
+                <div style="width:80%;display: flex;flex-direction: column;align-items: flex-end;">
+                  <div v-for="item in goodsArr" :key="item" style="display: flex;align-items: center;margin: 10px;">
+                    <div>{{item}}</div>
+                    <el-button :id="item" type="primary" circle size="small" @click.native="downloadBook">
+                      <i class="el-icon-download" ></i>
+                    </el-button>
+                  </div>
+
+                </div>
+              </div>
+            </div>
 
           </el-card>
 
@@ -51,6 +70,7 @@
 <script>
 import Header from "./Header";
 import Footer from "./Footer";
+import FileSaver from 'file-saver'
 export default {
   name: "Order",
   components: {Footer, Header},
@@ -58,6 +78,12 @@ export default {
     return{
       selectedId: '',
       orderList: [],
+      selectedOrder: {
+
+      },
+      goodsArr: [],
+      fileName: '',
+
 
 
     }
@@ -76,9 +102,32 @@ export default {
       })
     },
     showOrderInfo(){
-      console.log(this.selectedId);
+      this.orderList.forEach(order => {
+        if(order.orderId === this.selectedId){
+          this.selectedOrder = order;
+        }
+      })
+      this.goodsArr = this.selectedOrder.goods.split(',')
+      console.log(this.goodsArr)
 
     },
+    downloadBook(e){
+      this.fileName = e.currentTarget.id.split(':').join('') + '.pdf';
+      this.$axios({
+        url: this.$store.state.url + 'downloadBook/',
+        method: 'GET',
+        params: {
+          bookId: e.currentTarget.id,
+        },
+        //类型选择blob而不是arraybuffer
+        responseType: 'blob',
+      }).then(res => {
+        console.log('下载文件:', res);
+        FileSaver.saveAs(res.data, this.fileName);
+      })
+
+    }
+
 
   },
   watch: {
