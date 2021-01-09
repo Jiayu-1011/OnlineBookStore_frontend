@@ -29,7 +29,7 @@
 
             <div style="align-self: flex-start">选中</div>
 
-            <!--使用el-checkbox-group时必须给每个checkbox绑定作为添加进v-model的元素-->
+            <!--使用el-checkbox-group时必须给每个checkbox绑定:label, 作为添加进v-model的元素-->
             <el-checkbox-group v-model="checkedIds" @change="handleCheckChange">
 
               <div  v-for="(item, index) in shoppingList" :key="index">
@@ -45,14 +45,11 @@
 
               <el-button
                 type="success" :disabled="isDisabled" style="align-self: flex-start;" @click="submitOrder"
-              >
-                提交订单
-              </el-button>
+              >提交订单</el-button>
               <el-button
                 type="danger" circle icon="el-icon-delete" :disabled="isDisabled"
                 style="align-self: flex-start;margin: 0 0 0 40px;" @click="deleteFromCart"
-              >
-              </el-button>
+              ></el-button>
             </div>
 
             <div v-if="submitted" style="color: red;font-weight: 600;margin: 20px 0 0 0;">页面会在{{countDown}}秒后自动刷新</div>

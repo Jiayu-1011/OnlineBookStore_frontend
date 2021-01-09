@@ -38,8 +38,13 @@
                 <div>订单书目</div>
                 <div style="width:80%;display: flex;flex-direction: column;align-items: flex-end;">
                   <div v-for="item in goodsArr" :key="item" style="display: flex;align-items: center;margin: 10px;">
-                    <div>{{item}}</div>
-                    <el-button :id="item" type="primary" circle size="small" @click.native="downloadBook">
+                    <div
+                      @click="openEBook" :id="item" style="color: #3a8ee6;text-decoration-line: underline;cursor: pointer;"
+                    >{{item}}</div>
+                    <el-button
+                      :id="item" type="primary" circle size="small" @click.native="downloadBook"
+                      style="margin: 0 0 0 10px;"
+                    >
                       <i class="el-icon-download" ></i>
                     </el-button>
                   </div>
@@ -126,7 +131,12 @@ export default {
         FileSaver.saveAs(res.data, this.fileName);
       })
 
-    }
+    },
+    openEBook(e){
+      let id = e.currentTarget.id;
+      let url = 'http://119.29.24.77/sources/bookstore/eBook/' + id.split(':').join('') + '.pdf';
+      window.open(url);
+    },
 
 
   },

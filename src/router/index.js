@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import Home from "../views/Home";
 import Start from "../views/Start";
 import Main from "../components/Home/Main";
-import Manage from "../components/Manage";
+import Manage from "../components/Manage/Manage";
 import Login from "../components/Login/Login";
 import Register from "../components/Login/Register";
 import Login_view from "../views/Login_view";
@@ -13,6 +13,11 @@ import Book from "../components/Home/Book/Book";
 import BookInfo from "../components/Home/Book/BookInfo";
 import ShoppingCart from "../components/ShoppingCart";
 import Order from "../components/Order";
+import AddBook from "../components/Manage/AddBook";
+import DeleteBook from "../components/Manage/ModifyBook";
+import BookStats from "../components/Manage/BookStats";
+import Recharge from "../components/Manage/Recharge";
+import ModifyBook from "../components/Manage/ModifyBook";
 
 
 
@@ -95,6 +100,24 @@ export default new Router({
     {
       path: '/manage',
       component: Manage,
+      children: [
+        {
+          path: 'addBook',
+          component: AddBook,
+        },
+        {
+          path: 'modifyBook',
+          component: ModifyBook,
+        },
+        {
+          path: 'bookStats',
+          component: BookStats,
+        },
+        {
+          path: 'recharge',
+          component: Recharge,
+        }
+      ]
     }
 
   ]
