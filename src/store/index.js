@@ -13,10 +13,17 @@ const state = {
   avatar: '',
   account: '',
   password: '',
+  balance: 0,
 
   bookClass: '',
   pageNum: 1,
   shoppingList: [],
+  classArr: [
+    '儿童类',
+    '科学类',
+    '英语类',
+    '教材类',
+  ],
 
 
 }
@@ -31,11 +38,19 @@ const getDefaultState = () => {
     avatar: '',
     account: '',
     password: '',
+    balance: 0,
+
 
 
     bookClass: '',
     pageNum: 1,
     shoppingList: [],
+    classArr: [
+      '儿童类',
+      '科学类',
+      '英语类',
+      '教材类',
+    ],
 
   }
 }
@@ -49,6 +64,9 @@ const mutations = {
   },
   setUserName(state, userName){
     state.userName = userName;
+  },
+  setBalance(state, balance){
+    state.balance = balance;
   },
   setBookClass(state, bookClass){
     state.bookClass = bookClass;

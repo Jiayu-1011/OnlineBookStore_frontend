@@ -149,7 +149,8 @@ export default {
         url: this.$store.state.url + 'bookList/',
         method: 'GET',
         params: {
-
+          name: '',
+          bookClass: '',
         },
 
       }).then(res => {
@@ -164,9 +165,9 @@ export default {
           this.bookInfo = item;
         }
       })
-      if(this.bookInfo.bookClass !== '') {
-        this.bookInfo.bookClass = util.hashBookClass(this.bookInfo.bookClass);
-      }
+      // console.log(this.bookInfo.bookClass);
+      this.bookInfo.bookClass = util.hashBookClass(this.bookInfo.bookClass);
+
     },
     submitModifyAction(){
       console.log(this.bookInfo);

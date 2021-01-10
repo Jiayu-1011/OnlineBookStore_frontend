@@ -10,6 +10,8 @@ export default {
         return '英语类';
       case 'textbook':
         return '教材类';
+      default:
+        return bookClass;
     }
   },
   hashBackBookClass(bookClass) {
@@ -23,6 +25,8 @@ export default {
         return 'english';
       case '教材类':
         return 'textbook';
+      default:
+        return bookClass;
     }
   },
   formatDate(date){

@@ -76,6 +76,7 @@ export default {
           this.$store.commit('setIdentity', res.data.identity);
           this.$store.commit('setUserName', res.data.name);
           this.$store.commit('setAccount', this.formLabelAlign.acc);
+          this.$store.commit('setBalance', res.data.balance);
         } else if(res.data.msg === 'wrong') {
           this.$message.error('密码错误！')
         } else {

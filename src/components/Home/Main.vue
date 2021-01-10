@@ -7,23 +7,23 @@
       <div style="width:100%;display: flex;align-items: center;margin-top: 50px;">
 
         <img src="../../assets/image/shang.jpg" height="100px" width="100px"
-        style="margin-left: 100px;"></img>
+        style="margin-left: 100px;">
 
 
         <div style="width: 40%;height:100px;margin-left: 200px;display: flex;align-items: center;">
           <el-input
             @focus="focus"
             @blur="blur"
-            @keyup.enter.native="searchHandler"
+            @keyup.enter.native="submitSearch"
             v-model="searchInput"
             clearable
             placeholder="请输入搜索内容"
             style=""
-
-
           ></el-input>
-          <el-button type="primary" icon="el-icon-search"
-          style=""></el-button>
+          <el-button
+            type="primary" icon="el-icon-search" @click="submitSearch"
+            style=""
+          ></el-button>
           <el-card v-if="isSearch"></el-card>
         </div>
 
@@ -82,8 +82,18 @@ export default {
     blur(){
 
     },
-    searchHandler(){
+    submitSearch(){
+      this.$axios({
+        url: this.$store.state.url + 'bookList/',
+        method: 'GET',
+        params: {
+          name: this.searchInput,
+        },
 
+      }).then(res => {
+        console.log('搜索图书：', res);
+
+      })
     },
 
 

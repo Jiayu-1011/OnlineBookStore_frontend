@@ -40,11 +40,12 @@
 
             </el-checkbox-group>
             <div style="margin-top: 20px;">当前金额:<span style="color: red;">￥{{totalCost}}</span></div>
+            <div style="margin-top: 20px;">您当前余额为:<span style="color: red;">￥{{this.$store.state.balance}}</span></div>
 
             <div style="display: flex;margin-top: 20px;">
 
               <el-button
-                type="success" :disabled="isDisabled" style="align-self: flex-start;" @click="submitOrder"
+                type="primary" :disabled="isDisabled" style="align-self: flex-start;" @click="submitOrder"
               >提交订单</el-button>
               <el-button
                 type="danger" circle icon="el-icon-delete" :disabled="isDisabled"
@@ -117,10 +118,26 @@ export default {
 
       })
     },
+    getUserInfo(){
+      this.$axios({
+        url: this.$store.state.url + 'userInfo/',
+        method: 'GET',
+        params: {
+          account: this.$store.state.account,
+        }
+      }).then(res => {
+        console.log('用户信息：', res);
+        this.$store.commit('setBalance', res.data.userInfo.balance);
+      })
+    },
     handleCheckChange(){
       // console.log(this.checkedIds);
     },
     submitOrder(){
+      if(this.totalCost > this.$store.state.balance) {
+        this.$message.warning('商品总额已超出当前余额！');
+        return;
+      }
       this.$confirm('确认提交订单？', '提示', {
         confirmButtonText: '确认',
         cancelButtonText: '取消',
@@ -185,6 +202,7 @@ export default {
   },
   created() {
     this.getShoppingList();
+    this.getUserInfo();
   },
 }
 </script>
