@@ -37,22 +37,22 @@
 
         </el-menu-item>
 
-        <el-menu-item index="/home/bookList/children/1">
+        <el-menu-item id="children" @click="selectClass">
           <div>儿童类</div>
 
         </el-menu-item>
 
-        <el-menu-item index="/home/bookList/science/1">
+        <el-menu-item id="science" @click="selectClass">
           <div>科学类</div>
 
         </el-menu-item>
 
-        <el-menu-item index="/home/bookList/english/1">
+        <el-menu-item id="english" @click="selectClass">
           <div>英语类</div>
 
         </el-menu-item>
 
-        <el-menu-item index="/home/bookList/textbook/1">
+        <el-menu-item id="textbook" @click="selectClass">
           <div>教材类</div>
 
         </el-menu-item>
@@ -79,21 +79,31 @@ export default {
     focus(){
 
     },
-    blur(){
+    submitSearch(){
+      if(!this.searchInput.match(/^[ ]*$/)){
+        this.$router.push({
+          path: '/home/bookList',
+          query: {
+            keyWord: this.searchInput,
+          }
+        })
+      } else {
+        this.$router.push('/home/bookList')
+      }
 
     },
-    submitSearch(){
-      this.$axios({
-        url: this.$store.state.url + 'bookList/',
-        method: 'GET',
-        params: {
-          name: this.searchInput,
-        },
-
-      }).then(res => {
-        console.log('搜索图书：', res);
-
+    selectClass(e){
+      this.$router.push({
+        path: '/home/bookList',
+        query: {
+          bookClass: e.$attrs.id,
+          pageNum: '1',
+          sortType: 'default'
+        }
       })
+    },
+    blur(){
+
     },
 
 

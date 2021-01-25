@@ -149,8 +149,7 @@ export default {
         url: this.$store.state.url + 'bookList/',
         method: 'GET',
         params: {
-          name: '',
-          bookClass: '',
+
         },
 
       }).then(res => {

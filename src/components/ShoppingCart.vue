@@ -174,13 +174,13 @@ export default {
         cancelButtonText: '取消',
         type: 'warning'
       }).then(() => {
+        let data = new FormData();
+        data.append('account', this.$store.state.account);
+        data.append('bookId', this.checkedIds.join());
         this.$axios({
           url: this.$store.state.url + 'deleteFromCart/',
           method: 'POST',
-          data: {
-            account: this.$store.state.account,
-            bookId: this.checkedIds.join(),
-          }
+          data: data,
         }).then(res => {
           console.log('删除购物车图书:', res);
           this.$message.info('已删除');

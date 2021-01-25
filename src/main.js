@@ -11,11 +11,11 @@ import Vuex from 'vuex'
 import util from "./utils/util";
 
 
-
 //使用组件
 Vue.use(ElementUI)
 Vue.use(Vuex)
 Vue.prototype.$axios = axios;
+Vue.prototype.$util = util;
 
 //挂载
 

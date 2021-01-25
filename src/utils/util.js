@@ -29,6 +29,20 @@ export default {
         return bookClass;
     }
   },
+  hashSortType(sortType){
+    switch (sortType){
+      case 'default':
+        return '默认排序';
+      case 'comprehensive':
+        return '综合排序';
+      case 'sales':
+        return '销量排序';
+      case 'price':
+        return '价格排序';
+      case 'comment':
+        return '好评排序';
+    }
+  },
   formatDate(date){
     let year = date.getFullYear();
     let month = date.getMonth() + 1 <10? '0'+(date.getMonth()+1) : date.getMonth()+1;

@@ -48,15 +48,19 @@ export default new Router({
               component: Poster
             },
             {
-              path: 'bookList/:bookClass',
-              component: Book,
-              children: [
-                {
-                  path: ':pageNum',
-                  component: BookList,
-                }
-              ]
+              path: 'bookList/',
+              component: BookList,
             },
+            // {
+            //   path: 'bookList/:bookClass',
+            //   component: Book,
+            //   children: [
+            //     {
+            //       path: ':pageNum',
+            //       component: BookList,
+            //     }
+            //   ]
+            // },
             {
               path: 'bookInfo/:bookId',
               component: BookInfo,
